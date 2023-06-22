@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Docker Login'){
             steps{
-                sh 'echo $DOCKERHUB_CREDENTIALS_PWS | docker login -u $DOCKERHUB_CREDENTIALS -p'
+                sh 'echo $DOCKERHUB_CREDENTIALS_PWS | docker login -u $DOCKERHUB_CREDENTIALS --password-stdin'
             }
         }
         stage('Docker Push'){
