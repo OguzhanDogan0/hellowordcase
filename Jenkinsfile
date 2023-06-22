@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Docker Push'){
             steps{
-                sh 'docker push oguzhandogan/$IMAGENAME:latest'
+                sh 'docker push $IMAGENAME:latest'
             }
         }
     }
