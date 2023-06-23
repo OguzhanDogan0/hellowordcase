@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2023-06-23T07:34:54Z"
+  name: helloword3
+  namespace: default
+  resourceVersion: "71654"
+  uid: 11980b9d-a082-431c-8bfa-d15aa9ad144e
+spec:
+  allocateLoadBalancerNodePorts: true
+  clusterIP: 10.99.61.20
+  clusterIPs:
+  - 10.99.61.20
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - nodePort: 30932
+    port: 8001
+    protocol: TCP
+    targetPort: 8001
+  selector:
+    run: helloword3
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - ip: 172.16.16.202
