@@ -23,8 +23,7 @@ pipeline {
                 sh 'docker push oguzhandogan/$IMAGENAME:latest'
             }
         }
-    }
-   stage("Kubernetes Deployment"){
+        stage("Kubernetes Deployment"){
             steps{
                 script{
                     withCredentials([kubeconfigFile(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
@@ -37,3 +36,5 @@ pipeline {
             }
         }
     }
+        
+}
