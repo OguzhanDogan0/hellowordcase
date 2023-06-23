@@ -25,3 +25,17 @@ pipeline {
         }
     }
 }
+   stage("Kubernetes Deployment"){
+            steps{
+                script{
+                    withCredentials([kubeconfigFile(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
+                        sh '''
+                           kubectl apply -f Deployment.yaml
+                            
+                        '''
+                    }
+                }
+            }
+        }
+    }
+}
