@@ -26,7 +26,8 @@ pipeline {
         stage("Kubernetes Deployment"){
             steps{
                 script{
-                    kubernetesDeploy kubeconfigId: 'kubeconfig', configs: 'Deployment.yaml'
+                    kubernetesDeploy(configs: "Deployment.yaml", kubeconfigId: "kubeconfig")
+                    //kubernetesDeploy kubeconfigId: 'kubeconfig', configs: 'Deployment.yaml'
                     //withCredentials([kubeconfigFile(credentialsId: 'kubeconfig')]) {
                         //sh 'kubectl apply -f Deployment.yaml'
                     }
