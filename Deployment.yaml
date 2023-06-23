@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helloword3
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: helloword3
+  template:
+    metadata:
+      labels:
+        run: helloword3
+    spec:
+      containers:
+        - name: helloword3
+          image: oguzhandogan/helloword-v1
+          ports:
+          - name: https
+            containerPort: 8001
