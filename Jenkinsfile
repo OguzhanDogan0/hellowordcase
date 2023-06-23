@@ -24,7 +24,6 @@ pipeline {
             }
         }
     }
-}
    stage("Kubernetes Deployment"){
             steps{
                 script{
@@ -38,4 +37,3 @@ pipeline {
             }
         }
     }
-}
