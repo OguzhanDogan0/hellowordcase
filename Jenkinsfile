@@ -28,7 +28,7 @@ pipeline {
                 script{
                     //kubernetesDeploy(configs: "Deployment.yaml", kubeconfigId: "kubeconfig")
                     //kubernetesDeploy kubeconfigId: 'kubeconfig', configs: 'Deployment.yaml'
-                    withCredentials[(credentialsId: 'kubeconfig')] {
+                     withCredentials([kubeconfigFile(credentialsId: 'kubeconfig-id', variable: 'KUBECONFIG')]) {
                         sh 'kubectl apply -f Deployment.yaml'
                     }
                 }
